@@ -1,10 +1,9 @@
-var rows = 50;
-var cols = 50; 
 function genGrid(){
     let grid = document.getElementById("grid");
 
     //reset rows and columns so table size can be variable
-
+    var rows = 50;
+    var cols = 50; 
     for(var i = 0; i<rows; i++){
         let row = document.createElement("tr");
         
