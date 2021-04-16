@@ -3,20 +3,22 @@ function genGrid(){
     let grid = document.getElementById("grid");
  
     //reset rows and columns so table size can be variable
-    var rows = 50;
+    var rows = 49;
     var cols = 50;
+    let row = document.createElement("tr");
+    grid.appendChild(row);
     for(var i = 0; i<rows; i++){
-        let row = document.createElement("tr");
+
+        let row = grid.insertRow();
+
         
-        
-        grid.appendChild(row);
         
         for(var j = 0; j < cols; j++){
             let cell = document.createElement("td");   
             cell.setAttribute('id', i + ","+j);  
-           
+
             cell.onclick = e =>{
-                console.log("called");
+                console.log(e.target.id);
                 
                 if(map[e.target.id] == 0 || map[e.target.id]==null){
                     map[e.target.id] = 1;
@@ -27,13 +29,16 @@ function genGrid(){
                 }
                 //console.log(this.id);
             }
+            row.appendChild(cell);
+     
 
             // console.log(cell.className); 
-            row.appendChild(cell);
-        }    
+        } 
+        grid.appendChild(row);
+   
     }
 }
-genGrid();
+
  
 function play(){
         var block= document.getElementById("block");
@@ -44,18 +49,23 @@ function play(){
             document.getElementById("24,24").style.backgroundColor = "blue";
             map["24,25"] = 1;
             document.getElementById("24,25").style.backgroundColor = "blue";
-
             map["25,24"] = 1;
             document.getElementById("25,24").style.backgroundColor = "blue";
-
             map["25,25"] = 1;
             document.getElementById("25,25").style.backgroundColor = "blue";
-
-
         }else if(blinker.checked){
             
         }else if(beacon.checked){
 
         }
 }
+
+function stop(){
+    var arr = Object.keys(map);
+    for(var i = 0; i< arr.length;i++){
+        document.getElementById(arr[i]).style.backgroundColor = "white";
+
+    }
+}
 //setting the first pattern - block
+genGrid();
