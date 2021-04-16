@@ -1,0 +1,10 @@
+body {
+}
+#grid {
+    padding-bottom: 10px;
+}
+table td, tr{
+    border: 1px solid #FF5F1F;
+    width: 10px;
+    height: 10px;
+}
