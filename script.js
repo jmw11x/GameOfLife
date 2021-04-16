@@ -13,8 +13,9 @@ function genGrid(){
         for(var j = 0; j < cols; j++){
             let cell = document.createElement("td");
 
-            cell.setAttribute('id', i+j);
+            cell.setAttribute('id', i+"," +j);
             cell.setAttribute('class', 'dead');
+            cell.addEventListener('click', click);
             //console.log(cell.className); 
             row.appendChild(cell);
         }
@@ -22,24 +23,30 @@ function genGrid(){
 }
 
 //setting up random positions to begin
-function randSetup(){
-    var ij = Math.floor(Math.random() * 5050) + 1;
+function click(){
+    if(this.className === 'live'){
+        this.setAttribute('class', 'dead');
+    }else{
+        this.setAttribute('class','live');
+    }
+    //console.log(this.id);
     
-
-        var td = document.getElementsByTagName("td");
-
-        for(var k = 0; k < 30; k++){
-            
-            var rand = Math.floor(Math.random() * 2500) + 1;
-            if(td[k].className == "dead" && $("#"+ ij +"td")){
-                td[rand].className = 'live';
-            }
-
-            //console.log(td[rand]);
-            
-        }
-
 }
+//setting the first pattern - block
+function block(){
+   
+    var fill = document.getElementById('21,29');
+    var fill1 = document.getElementById('21,30');
+    var fill2 = document.getElementById('22,29');
+    var fill3 = document.getElementById('22,30');
+ 
+    fill.setAttribute('class', 'live');
+    fill1.setAttribute('class', 'live');
+    fill2.setAttribute('class', 'live');
+    fill3.setAttribute('class', 'live');
+}
+ 
+block();
 
 genGrid();
-randSetup();
+
