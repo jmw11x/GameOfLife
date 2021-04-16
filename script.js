@@ -35,5 +35,27 @@ function genGrid(){
 }
 genGrid();
  
+function play(){
+        var block= document.getElementById("block");
+        var blinker= document.getElementById("blinker");
+        var beacon = document.getElementById("beacon");
+        if(block.checked){
+            map["24,24"] = 1;
+            document.getElementById("24,24").style.backgroundColor = "blue";
+            map["24,25"] = 1;
+            document.getElementById("24,25").style.backgroundColor = "blue";
 
+            map["25,24"] = 1;
+            document.getElementById("25,24").style.backgroundColor = "blue";
+
+            map["25,25"] = 1;
+            document.getElementById("25,25").style.backgroundColor = "blue";
+
+
+        }else if(blinker.checked){
+            
+        }else if(beacon.checked){
+
+        }
+}
 //setting the first pattern - block
