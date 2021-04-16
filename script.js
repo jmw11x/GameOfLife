@@ -1,9 +1,9 @@
 function genGrid(){
     let grid = document.getElementById("grid");
-
+ 
     //reset rows and columns so table size can be variable
     var rows = 50;
-    var cols = 50; 
+    var cols = 50;
     for(var i = 0; i<rows; i++){
         let row = document.createElement("tr");
         
@@ -12,17 +12,20 @@ function genGrid(){
         
         for(var j = 0; j < cols; j++){
             let cell = document.createElement("td");
-
-            cell.setAttribute('id', i+"," +j);
+ 
+             
+            
+            cell.setAttribute('id', i + ","+j);  
             cell.setAttribute('class', 'dead');
             cell.addEventListener('click', click);
-            //console.log(cell.className); 
+            console.log(cell.className); 
             row.appendChild(cell);
-        }
+        }    
     }
 }
-
-//setting up random positions to begin
+genGrid();
+ 
+// to change colors when click
 function click(){
     if(this.className === 'live'){
         this.setAttribute('class', 'dead');
@@ -47,6 +50,3 @@ function block(){
 }
  
 block();
-
-genGrid();
-
