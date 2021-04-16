@@ -54,9 +54,30 @@ function play(){
             map["25,25"] = 1;
             document.getElementById("25,25").style.backgroundColor = "blue";
         }else if(blinker.checked){
-            
+            map["24,25"] = 1;
+            document.getElementById("24,25").style.backgroundColor = "blue";
+            map["25,25"] = 1;
+            document.getElementById("25,25").style.backgroundColor = "blue";
+            map["26,24"] = 1;
+            document.getElementById("26,25").style.backgroundColor = "blue";
         }else if(beacon.checked){
+            map["24,24"] = 1;
+            document.getElementById("24,24").style.backgroundColor = "blue";
+            map["24,25"] = 1;
+            document.getElementById("24,25").style.backgroundColor = "blue";
+            map["25,24"] = 1;
+            document.getElementById("25,24").style.backgroundColor = "blue";
+            map["25,25"] = 1;
+            document.getElementById("25,25").style.backgroundColor = "blue";
+            map["24,24"] = 1;
 
+            document.getElementById("26,26").style.backgroundColor = "blue";
+            map["24,25"] = 1;
+            document.getElementById("26,27").style.backgroundColor = "blue";
+            map["25,24"] = 1;
+            document.getElementById("27,26").style.backgroundColor = "blue";
+            map["25,25"] = 1;
+            document.getElementById("27,27").style.backgroundColor = "blue";
         }
 }
 
