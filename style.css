@@ -1,23 +1,11 @@
-
+  
 body {
-    background: #1E1F26;
 }
 #grid {
     padding-bottom: 10px;
 }
-table {
-    background-color: #1E1F26;
-    
-}
-td {
+table td, tr{
     border: 1px solid #FF5F1F;
     width: 10px;
     height: 10px;
-}
-
-td.dead {
-    background-color: transparent;
-}
-td.live {
-    background-color:#FF5F1F;
 }
