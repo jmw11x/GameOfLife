@@ -44,55 +44,84 @@ function play(){
         var block= document.getElementById("block");
         var blinker= document.getElementById("blinker");
         var beacon = document.getElementById("beacon");
+
         if(block.checked){
             map["24,24"] = 1;
-            document.getElementById("24,24").setAttribute('class', 'pattern');
             document.getElementById("24,24").style.backgroundColor = "blue";
             map["24,25"] = 1;
-            document.getElementById("24,25").setAttribute('class', 'pattern');
             document.getElementById("24,25").style.backgroundColor = "blue";
             map["25,24"] = 1;
-            document.getElementById("25,24").setAttribute('class', 'pattern');
             document.getElementById("25,24").style.backgroundColor = "blue";
             map["25,25"] = 1;
-            document.getElementById("25,25").setAttribute('class', 'pattern');
             document.getElementById("25,25").style.backgroundColor = "blue";
+
+            //these parts of the other patterns should be turned off on play
+            map["26,26"] = 0;
+            document.getElementById("26,26").style.backgroundColor = "white";
+            map["26,27"] = 0;
+            document.getElementById("26,27").style.backgroundColor = "white";
+            map["27,26"] = 0;
+            document.getElementById("27,26").style.backgroundColor = "white";
+            map["27,27"] = 0;
+            document.getElementById("27,27").style.backgroundColor = "white";
+
+            map["26,25"] = 0;
+            document.getElementById("26,25").style.backgroundColor = "white";
         }else if(blinker.checked){
             map["24,25"] = 1;
-            document.getElementById("24,25").setAttribute('class', 'pattern');
             document.getElementById("24,25").style.backgroundColor = "blue";
             map["25,25"] = 1;
-            document.getElementById("24,25").setAttribute('class', 'pattern');
+
             document.getElementById("25,25").style.backgroundColor = "blue";
-            map["26,24"] = 1;
-            document.getElementById("26,25").setAttribute('class', 'pattern');
+            map["26,25"] = 1;
+
             document.getElementById("26,25").style.backgroundColor = "blue";
+
+            //these parts of the other patterns should be turned off on play
+            map["26,26"] = 0;
+            document.getElementById("26,26").style.backgroundColor = "white";
+            map["26,27"] = 0;
+            document.getElementById("26,27").style.backgroundColor = "white";
+            map["27,26"] = 0;
+            document.getElementById("27,26").style.backgroundColor = "white";
+            map["27,27"] = 0;
+            document.getElementById("27,27").style.backgroundColor = "white";
+
+            map["25,24"] = 0;
+            document.getElementById("25,24").style.backgroundColor = "white";
+            map["24,24"] = 0;
+            document.getElementById("24,24").style.backgroundColor = "white";
         }else if(beacon.checked){
             map["24,24"] = 1;
-            document.getElementById("24,24").setAttribute('class', 'pattern');
+
             document.getElementById("24,24").style.backgroundColor = "blue";
             map["24,25"] = 1;
-            document.getElementById("24,25").setAttribute('class', 'pattern');
+
             document.getElementById("24,25").style.backgroundColor = "blue";
             map["25,24"] = 1;
-            document.getElementById("25,24").setAttribute('class', 'pattern');
+
             document.getElementById("25,24").style.backgroundColor = "blue";
             map["25,25"] = 1;
-            document.getElementById("25,25").setAttribute('class', 'pattern');
+
             document.getElementById("25,25").style.backgroundColor = "blue";
-            map["24,24"] = 1;
-            document.getElementById("26,26").setAttribute('class', 'pattern');
+            map["26,26"] = 1;
+
             document.getElementById("26,26").style.backgroundColor = "blue";
-            map["24,25"] = 1;
-            document.getElementById("26,27").setAttribute('class', 'pattern');
+            map["26,27"] = 1;
+
             document.getElementById("26,27").style.backgroundColor = "blue";
-            map["25,24"] = 1;
-            document.getElementById("27,26").setAttribute('class', 'pattern');
+            map["27,26"] = 1;
+ 
             document.getElementById("27,26").style.backgroundColor = "blue";
-            map["25,25"] = 1;
-            document.getElementById("27,27").setAttribute('class', 'pattern');
+            map["27,27"] = 1;
+
             document.getElementById("27,27").style.backgroundColor = "blue";
+
+            //parts of pattern are off
+            map["26,25"] = 0;
+            document.getElementById("26,25").style.backgroundColor = "white";
         }
+        
 }
 
 function stop(){
@@ -105,22 +134,71 @@ function stop(){
 
 //reset button 
 function reset(){
+    if(block.checked){
+        document.getElementById("24,24").setAttribute('class', 'pattern');
+        document.getElementById("24,25").setAttribute('class', 'pattern');
+        document.getElementById("25,24").setAttribute('class', 'pattern');
+        document.getElementById("25,25").setAttribute('class', 'pattern');
+
+        //off
+        document.getElementById("26,26").setAttribute('class', 'none');
+        document.getElementById("26,27").setAttribute('class', 'none');
+        document.getElementById("27,26").setAttribute('class', 'none');
+        document.getElementById("27,27").setAttribute('class', 'none');
+
+        document.getElementById("26,25").setAttribute('class', 'none');
+    }
+    if(blinker.checked){
+        document.getElementById("24,25").setAttribute('class', 'pattern');
+        document.getElementById("25,25").setAttribute('class', 'pattern');
+        document.getElementById("26,25").setAttribute('class', 'pattern');
+
+        //off
+
+        document.getElementById("24,24").setAttribute('class', 'none');
+        document.getElementById("25,24").setAttribute('class', 'none');
+
+        document.getElementById("26,26").setAttribute('class', 'none');
+        document.getElementById("26,27").setAttribute('class', 'none');
+        document.getElementById("27,26").setAttribute('class', 'none');
+        document.getElementById("27,27").setAttribute('class', 'none');
+    }else if(beacon.checked){
+        document.getElementById("24,24").setAttribute('class', 'pattern');
+        document.getElementById("24,25").setAttribute('class', 'pattern');
+        document.getElementById("25,24").setAttribute('class', 'pattern');
+        document.getElementById("25,25").setAttribute('class', 'pattern');
+        document.getElementById("26,26").setAttribute('class', 'pattern');
+        document.getElementById("26,27").setAttribute('class', 'pattern');
+        document.getElementById("27,26").setAttribute('class', 'pattern');
+        document.getElementById("27,27").setAttribute('class', 'pattern');
+
+        //off
+
+        document.getElementById("26,25").setAttribute('class', 'none');
+    }
     for(var i = 0; i<50; i++){
         for(var j = 0; j<50; j++){
             
             var temp = document.getElementById(i+","+j);
             if(temp.className === 'pattern'){
                 document.getElementById(i+","+j).style.backgroundColor = "blue";
+                map[i+","+j] = 1;
             }else{
                 document.getElementById(i+","+j).style.backgroundColor = "white";
                 map[i+","+j] = 0;
-            }
-            
+            }     
             //console.log(map[i+","+j]);
-            
-            
+        
         }
     }
 
+    
+
 }
+
+//game rules
+function rules(){
+
+}
+
 genGrid();
