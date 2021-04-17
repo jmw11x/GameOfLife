@@ -130,23 +130,13 @@ function play(){
  
             document.getElementById("26,26").style.backgroundColor = "white";
         }
- 
-        //play button will keep adding generations up to 23 everytime it is clicked
+
         countN();
         
 }
 
-//rules: adding generations
+//count neighbors + rules
 function countN(){
-// 1. Any live cell with fewer than two live neighbors dies, which is caused by under population.
-// 2. Any live cell with more than three live neighbors dies, as if by overcrowding.
-// 3. Any live cell with two or three live neighbors’ lives on to the next generation.
-// 4. Any dead cell with exactly three live neighbors becomes a live cell.
-// 5. If a dead cell has exactly three live neighbors, it comes to 
-// 6. If a live cell has less than two live neighbors, it dies
-// 7. If a live cell has more than three live neighbors, it dies
-// 8. If a live cell has two or three live neighbors, it continues living. life - Therefore by repeating the 
-// cycle over and over, these simple rules create interesting, often unpredictable patterns.
 
 
 var keys = Object.keys(map);
@@ -194,6 +184,15 @@ for(var i = 0; i<50; i++){
                 console.log(count);
                 count = 0;
                 //resets count for next iteration
+                // 1. Any live cell with fewer than two live neighbors dies, which is caused by under population.
+                // 2. Any live cell with more than three live neighbors dies, as if by overcrowding.
+                // 3. Any live cell with two or three live neighbors’ lives on to the next generation.
+                // 4. Any dead cell with exactly three live neighbors becomes a live cell.
+                // 5. If a dead cell has exactly three live neighbors, it comes to 
+                // 6. If a live cell has less than two live neighbors, it dies
+                // 7. If a live cell has more than three live neighbors, it dies
+                // 8. If a live cell has two or three live neighbors, it continues living. life - Therefore by repeating the 
+                // cycle over and over, these simple rules create interesting, often unpredictable patterns.
                 //add rules here 
              }
 
