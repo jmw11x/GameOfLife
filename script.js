@@ -182,8 +182,7 @@ for(var i = 0; i<50; i++){
                 }
                 
                 console.log(count);
-                count = 0;
-                //resets count for next iteration
+                
                 // 1. Any live cell with fewer than two live neighbors dies, which is caused by under population.
                 // 2. Any live cell with more than three live neighbors dies, as if by overcrowding.
                 // 3. Any live cell with two or three live neighbors’ lives on to the next generation.
@@ -194,6 +193,10 @@ for(var i = 0; i<50; i++){
                 // 8. If a live cell has two or three live neighbors, it continues living. life - Therefore by repeating the 
                 // cycle over and over, these simple rules create interesting, often unpredictable patterns.
                 //add rules here 
+                 
+                 
+                //resets count for next iteration
+                count = 0;
              }
 
      }
