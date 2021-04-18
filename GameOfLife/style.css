@@ -1,0 +1,33 @@
+  
+body {
+}
+#grid {
+    padding-bottom: 10px;
+}
+table td, tr{
+    border: 1px solid #FF5F1F;
+    width: 10px;
+    height: 10px;
+}
+#form{
+	text-align:center;
+
+}
+.logbutton{
+	border-radius:25px;
+	border: 2px solid red;
+	margin:auto;
+	width:300px;
+	height:30px;
+}
+label{
+	font-weight:bold;
+	font-size:20pt;
+}
+#subbutton{
+	border-radius:25px;
+	border:2px solid red;
+	margin:auto;
+	width:100px;
+	height:25px;
+}
