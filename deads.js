@@ -1,9 +1,18 @@
 var stopit = false;
 var resetit = false;
 var map ={};
-var alive = [];
+var block= document.getElementById("block");
+var blinker= document.getElementById("blinker");
+var beacon = document.getElementById("beacon");
+var alive = loadAlive();
+
+if(beacon.checked){
+    alive = [];
+}
 
 function loadAlive(){
+
+    
     var data = [];
     var fixed = [];
     var pointer = 0;
@@ -20,7 +29,6 @@ function loadAlive(){
         }
     }
     console.log(fixed,"IS IT FIXED?")
-    window.localStorage.clear();
 
     return fixed; 
 }
@@ -193,11 +201,15 @@ function getNeighbors(current, alive){
 //returns array of all active cells
 function getActivatedCells(){
     var pointer = 0;
-    var alive = loadAlive();
+    
     alive = removeDups(alive);
     console.log(alive, "CHCKED?")
     var keys = Object.keys(map); 
     for(var i = 0; i < keys.length; i++){
+        if(keys[i] in alive){
+            map[keys[i]]=1;
+            continue;
+        }
         if(map[keys[i]] == 1){
             alive[pointer] = keys[i];
             pointer++;
@@ -287,10 +299,14 @@ function task(i) {
             location.reload()
         }
         for(var j = 0 ; j< alive.length;j++){
+            console.log(alive[j],"WHAT INT ABSOLTE FUKKKKKKKKKKKKKKKKKKKKKKKKKKKKK")
             var aliveneighbors = getNeighbors(alive[j], alive);
             console.log("the alive neighbors of "+alive[j]+": "+ aliveneighbors);
             if(aliveneighbors.length<2 || aliveneighbors.length>3){
                 map[alive[j]]=0;
+                // remove 
+                //document.getElementById(alive[j]).style.backgroundColor = "blue";
+                //remove alive[j] from alive
             }
             
         }
@@ -299,6 +315,9 @@ function task(i) {
             var aliveneighbors = revive(dead[j]);
             if(aliveneighbors == 3){
                 map[dead[j]]=1;
+                //add
+                //alive = map[dead[j]];
+                //document.getElementById(dead[j]).style.backgroundColor = "white";
             }
         }
         setTimeout(() => {  updateGrid() }, 300);

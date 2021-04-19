@@ -5,16 +5,41 @@
         <title>Game of Life</title>
         <link rel="stylesheet" type="text/css" href='style.css'>
     </head>
-    <body>
-        
+    <body onLoad = "javascript:loadCache()"> 
+        <script></script>
         <table id="grid"></table>
 
         block<input type="radio" name = "shape" value = "block" id = "block"/>
         blinker<input type="radio" name = "shape" value = "blinker" id = "blinker"/>
         beacon<input type="radio" name = "shape" value = "beacon" id = "beacon"/>
-        <button onclick = "play()">Play</button>
+        <button onclick = "setShape()">Play</button>
         <button onclick = "stop()">Stop</button>
-        <script src = "script.js"></script>
+        <button onclick = "reset()">Reset</button>
 
+
+        <br/>
+        <br/>
+        <div id ="result"></div>
+        <script src = "script.js"></script>
+        <script>
+            function loadCache(){
+                var data = [];
+                if(localStorage["active"]!= undefined){data = localStorage["active"].split(",");}
+                if(data.length<1){return;}
+                else{
+                    for(var i = 0; i<data.length;i+=2){
+                        var element = parseInt(data[i])+","+parseInt(data[i+1]);
+                        console.log(element,"elemnt")
+                        if(document.getElementById(element) != null){document.getElementById(element).style.backgroundColor = "blue";}
+                        
+                    }
+                }
+                return;
+
+                
+              
+            }
+        </script>
+        
     </body>
 </html>
