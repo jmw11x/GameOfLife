@@ -47,10 +47,10 @@ function genGrid(){
                 
                 if(map[e.target.id] == 0 || map[e.target.id]==null){
                     map[e.target.id] = 1;
-                    document.getElementById(e.target.id).style.backgroundColor = "blue";
+                    document.getElementById(e.target.id).style.backgroundColor = "#FF5F1F";
                 }else{   
                     map[e.target.id] = 0;
-                    document.getElementById(e.target.id).style.backgroundColor = "white";
+                    document.getElementById(e.target.id).style.backgroundColor = "black";
                 }
                 //console.log(this.id);
             }
@@ -71,42 +71,42 @@ function setShape(){
     var beacon = document.getElementById("beacon");
     if(block.checked){
         map["24,24"] = 1;
-        document.getElementById("24,24").style.backgroundColor = "blue";
+        document.getElementById("24,24").style.backgroundColor = "#FF5F1F";
         map["24,25"] = 1;
-        document.getElementById("24,25").style.backgroundColor = "blue";
+        document.getElementById("24,25").style.backgroundColor = "#FF5F1F";
         map["25,24"] = 1;
-        document.getElementById("25,24").style.backgroundColor = "blue";
+        document.getElementById("25,24").style.backgroundColor = "#FF5F1F";
         map["25,25"] = 1;
-        document.getElementById("25,25").style.backgroundColor = "blue";
+        document.getElementById("25,25").style.backgroundColor = "#FF5F1F";
     }else if(blinker.checked){
         map["24,25"] = 1;
-        document.getElementById("24,25").style.backgroundColor = "blue";
+        document.getElementById("24,25").style.backgroundColor = "#FF5F1F";
         map["25,25"] = 1;
-        document.getElementById("25,25").style.backgroundColor = "blue";
+        document.getElementById("25,25").style.backgroundColor = "#FF5F1F";
         map["26,25"] = 1;
-        document.getElementById("26,25").style.backgroundColor = "blue";
+        document.getElementById("26,25").style.backgroundColor = "#FF5F1F";
         setTimeout(() => {  play() }, 300);
  
         //run gamescript
     }else if(beacon.checked){
         map["24,24"] = 1;
-        document.getElementById("24,24").style.backgroundColor = "blue";
+        document.getElementById("24,24").style.backgroundColor = "#FF5F1F";
         map["24,25"] = 1;
-        document.getElementById("24,25").style.backgroundColor = "blue";
+        document.getElementById("24,25").style.backgroundColor = "#FF5F1F";
         map["25,24"] = 1;
-        document.getElementById("25,24").style.backgroundColor = "blue";
+        document.getElementById("25,24").style.backgroundColor = "#FF5F1F";
         map["25,25"] = 0;
-        document.getElementById("25,25").style.backgroundColor = "white";
+        document.getElementById("25,25").style.backgroundColor = "black";
        
     
  
         
         map["26,27"] = 1;
-        document.getElementById("26,27").style.backgroundColor = "blue";
+        document.getElementById("26,27").style.backgroundColor = "#FF5F1F";
         map["27,26"] = 1;
-        document.getElementById("27,26").style.backgroundColor = "blue";
+        document.getElementById("27,26").style.backgroundColor = "#FF5F1F";
         map["27,27"] = 1;
-        document.getElementById("27,27").style.backgroundColor = "blue";
+        document.getElementById("27,27").style.backgroundColor = "#FF5F1F";
        
             play();
         
@@ -313,10 +313,10 @@ function updateGrid(){
     for (var i = 0; i< keys.length; i++){
         if(keys[i] !=undefined){
             if(map[keys[i]] == 1){
-                document.getElementById(keys[i]).style.backgroundColor = "blue";
+                document.getElementById(keys[i]).style.backgroundColor = "#FF5F1F";
                 
             }else if(map[keys[i]] == 0){
-                document.getElementById(keys[i]).style.backgroundColor = "white";
+                document.getElementById(keys[i]).style.backgroundColor = "black";
                 
             }
         }
@@ -330,7 +330,7 @@ function stop(){
     stopit=true;
     var arr = Object.keys(map);
     for(var i = 0; i< arr.length;i++){
-        document.getElementById(arr[i]).style.backgroundColor = "white";
+        document.getElementById(arr[i]).style.backgroundColor = "black";
         map[[i]] = 0;
     }
     window.localStorage.clear();
