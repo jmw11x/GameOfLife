@@ -43,6 +43,7 @@ header('Location:index.html');
 else
 {
 $err="Invalid username and password!";
+header("Location:registration.php");
 }
 }
 ?>     
