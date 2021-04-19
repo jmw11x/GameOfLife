@@ -35,6 +35,25 @@
         <a class = "button" onclick = "countN()">FirstGen</a>
         </div>
         <script src = "script.js"></script>
+    <script>
+            function loadCache(){
+                var data = [];
+                if(localStorage["active"]!= undefined){data = localStorage["active"].split(",");}
+                if(data.length<1){return;}
+                else{
+                    for(var i = 0; i<data.length;i+=2){
+                        var element = parseInt(data[i])+","+parseInt(data[i+1]);
+                        console.log(element,"elemnt")
+                        if(document.getElementById(element) != null){document.getElementById(element).style.backgroundColor = "blue";}
+                        
+                    }
+                }
+                return;
+
+                
+              
+            }
+        </script>
  
     </body>
 </html>
