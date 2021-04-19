@@ -1,11 +1,38 @@
+var stopit = false;
+var resetit = false;
 var map ={};
+var alive = [];
+
+function loadAlive(){
+    var data = [];
+    var fixed = [];
+    var pointer = 0;
+    console.log(window.localStorage["active"])
+    if(window.localStorage["active"]!= undefined){data = window.localStorage["active"].split(",");}
+    if(data.length<1){return data;}
+    else{
+        for(var i = 0; i<data.length;i+=2){
+            var element = parseInt(data[i])+","+parseInt(data[i+1]);
+            console.log(element,"elemnt********************************************************************************************************")
+            map[element] = 1;
+            fixed[pointer]=element;
+            pointer++;
+        }
+    }
+    console.log(fixed,"IS IT FIXED?")
+    window.localStorage.clear();
+
+    return fixed; 
+}
+
+
 
 //create grid
 function genGrid(){
     let grid = document.getElementById("grid");
  
     //reset rows and columns so table size can be variable
-    var rows = 50;
+    var rows = 49;
     var cols = 50;
     let row = document.createElement("tr");
     grid.appendChild(row);
@@ -83,6 +110,8 @@ function setShape(){
        
             play();
         
+    }else{
+        play();
     }
     
    
@@ -117,7 +146,15 @@ function revive(current){
     return l;
 }
  
-//return array of neighbors that are alive for current cell
+
+
+function removeDups(arr){
+    return [... new Set(arr)]
+}
+
+
+
+//returns array of neighbors that are alive for current cell
 function getNeighbors(current, alive){
     // console.log("in n", alive)
     // console.log (current,"CURRENTTTTTTTTTTTTTTTTTTTTTTT")
@@ -153,10 +190,12 @@ function getNeighbors(current, alive){
 }
 
 
-//return array of all active cells
+//returns array of all active cells
 function getActivatedCells(){
     var pointer = 0;
-    var alive = [];
+    var alive = loadAlive();
+    alive = removeDups(alive);
+    console.log(alive, "CHCKED?")
     var keys = Object.keys(map); 
     for(var i = 0; i < keys.length; i++){
         if(map[keys[i]] == 1){
@@ -214,7 +253,6 @@ function getDeadCells(active_cells){
   
 **/
 function play(){
-    // if reset button is selected
     
     var block= document.getElementById("block");
     if(block.checked){return;}
@@ -222,6 +260,7 @@ function play(){
     //running the game rules within task
     for(var i = 0; i<23; i++){ 
         task(i);
+
     }
 }
 
@@ -230,31 +269,36 @@ function play(){
 //calls the iterations within timer function
 function task(i) {
     setTimeout(function() {
+        console.log(i, "I AM I WHAT AM I********************************************************")
+        
         alive = getActivatedCells();
-  
-
+        console.log("START ACTIVEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEe", alive);
         var dead = getDeadCells(alive);
-
+        if(stopit){         
+            if (typeof(Storage) !== "undefined") {
+            // Store
+            
+                localStorage.setItem("active", getActivatedCells().join());
+               // Retrieve
+                
+            } else {
+                  document.getElementById("result").innerHTML = "Sorry, your browser does not support Web Storage...";
+            }            
+            location.reload()
+        }
         for(var j = 0 ; j< alive.length;j++){
             var aliveneighbors = getNeighbors(alive[j], alive);
-            console.log("the alive neighbors of "+alive[j]+": "+ aliveneighbors+","+j);
+            console.log("the alive neighbors of "+alive[j]+": "+ aliveneighbors);
             if(aliveneighbors.length<2 || aliveneighbors.length>3){
                 map[alive[j]]=0;
-                // remove 
-                //document.getElementById(alive[j]).style.backgroundColor = "blue";
-                //remove alive[j] from alive
             }
             
         }
         
         for(var j = 0; j<dead.length;j++){
             var aliveneighbors = revive(dead[j]);
-            console.log(aliveneighbors);
             if(aliveneighbors == 3){
                 map[dead[j]]=1;
-                //add
-                //alive = map[dead[j]];
-                //document.getElementById(dead[j]).style.backgroundColor = "white";
             }
         }
         setTimeout(() => {  updateGrid() }, 300);
@@ -283,11 +327,20 @@ function updateGrid(){
 
 //clears graph, fixes needed: stopping the running play() function all together
 function stop(){
+    stopit=true;
     var arr = Object.keys(map);
     for(var i = 0; i< arr.length;i++){
         document.getElementById(arr[i]).style.backgroundColor = "white";
+        map[[i]] = 0;
     }
+    window.localStorage.clear();
+    location.reload();
 }
+function reset(){
+    stopit=true;  
+}
+
+
 
 //wait time so we can see pattern oscillating
 const sleep = (milliseconds) => {
