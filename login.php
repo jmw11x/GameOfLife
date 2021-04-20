@@ -35,7 +35,7 @@
             <h1>Conway's Game of Life</h1>
           </div>
           <div class = "signout">
-                <a class = "" >Sign Out</a>
+                <a href = "" >Credits</a>
               </div>
         </div>
       </header>
