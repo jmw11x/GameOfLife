@@ -1,1 +1,183 @@
+html{
+  min-height: 100%;
+  position:relative;
+}
+body {
+  height: 100%;
+  width: 100%;
+  background: black;
+  background: -webkit-linear-gradient(top right, black 0%, #181818 100%);
+  background: linear-gradient(to bottom right, black 0%, #181818 100%);
+  font-family: "Lucida Console", Monaco, monospace;
+  font-size:25px;
+  color: #ed872d;
+}
+/* header */
+header {
+  display: flex;
+  padding: 30px 30px 0px 30px;
+
+}
+img {
+  height: 130px;
+  width: 250px;
+}
+header .row {
+  margin-top: 8px;
+  padding: 30px 30px 0px 30px;
+  width: 95%;
+}
+.col {
+  flex: 1;
+}
+.row {
+  display: flex;
+  width: 100%;
+  padding: 15px 15px 0px 15px;
+}
+.wide {
+  flex: 5;
+  text-align: center;
+}
+h1 {
+    font-family: "Lucida Console", Monaco, monospace;
+    color: #E10600;
+    float: center;
+    
+
+}
+p {
+  color: #F2CD00;
+}
+table{
+  float: center;
+}
+table td, tr{
+    border: .5px;
+    width: 10px;
+    height: 10px;
+    outline: none;
+    border-color: #ed872d;
+    box-shadow: 0 0 10px #ed872d;
+
+}
+
+#grid {
+    margin: 0 auto;
+    padding-bottom: 10px;
+}
+
+
+.btn {
+    margin: 0 auto;
+    padding-bottom: 10px;  
+    color: #a86d00;
+    font-family: sans-serif;
+    text-transform: uppercase;
+    text-align: center;
+    position: relative;
+    text-decoration: none;
+    display:inline-block;
+    border: 1px solid #a86d00;
+    transition: color 150ms ease-in-out 150ms, border-color 300ms ease-out, box-shadow 300ms ease-in-out;
+    height: 20px;
+    width: 250px;
+    padding: 35px 85px 30px;
+}
+.btn:hover{
+  color: #FF5F1F;
+  border-color: lighten(white, 20%);
+  border: 1px solid;
+  box-shadow: 0 0 10px #FF5F1F;
+  /* #F2CD00 : yellow ; #fd3c06: red orange ; #E10600 : bright red*/
+}
+a, .button {
+  padding: 15px 100px;
+  margin:10px 4px;
+  color: #F2CD00;
+  font-family: "Lucida Console", Monaco, monospace;
+  text-transform: uppercase;
+  text-align: center;
+  border: 1px solid #F2CD00;
+  
+}
+.register, .buttondiv {
+  max-width: 1000px;
+	margin: 0 auto;
+	padding: 50px 0;
+	text-align: center;
+}
+.adjust, .adjust1, .adjust2 {
+  
+  padding: 10px 10px;
+  float: center;
+  
+}
+
+form{
+	padding: 20px 0;
+	position: relative;
+	z-index: 2;
+}  
+form input{
+  display: block;
+  appearance: none;
+  outline: 0;
+  border: 1px solid fade(black, 40%);
+  background-color: fade(black, 20%);
+  width: 250px;
+  
+  border-radius: 3px;
+  padding: 10px 15px;
+  margin: 0 auto 10px auto;
+  display: block;
+  text-align: center;
+  font-size: 18px;
+  
+  color: black;
+  
+  transition-duration: 0.25s;
+  font-weight: 300;
+}
+input.submit {
+  color: black; 
+}
+/*.submit {
+  margin:auto;
+  width:28%;
+  cursor: pointer;
+  border-radius: 5em;
+  color: #fff;
+  background: linear-gradient(to right, blue, lightskyblue);
+  border: 0;
+  padding-left: 40px;
+  padding-right: 40px;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  font-family: 'Ubuntu', sans-serif;
+  
+  font-size: 13px;
+  box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.04);
+}
+input.submit:hover{
+  background:#ffffff;
+  color:blue;
+*/
+}
+.headers {
+    text-align: center;
+}
+.flex-container {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+}
+.flex-container > .box {
+    background-color: #f1f1f1;
+    width: 300px;
+    margin: 20px;
+    text-align: center;
+    /* line-height: 75px; */
+    font-size: 20px;
+}
 
