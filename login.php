@@ -34,13 +34,16 @@
           <div class="wide">
             <h1>Conway's Game of Life</h1>
           </div>
+          <div class = "signout">
+                <a class = "" >Sign Out</a>
+              </div>
         </div>
       </header>
 
 
       <div class="register">
         <?php if(isset($err)){echo "<p class='error'><b>".$err."</b></p>";}?>
-        <p class="sign"> ... </p>
+        <p class="sign"> LOGIN </p>
       
 
         <form method="post" class="form1">
@@ -52,9 +55,8 @@
           <input class="un" placeholder="Password" type="text" id="pass" name="pass">
           <br><br>
 
-          <div id="btn">
-          <input  class = "submit" type="submit" name="submit" value="Submit">
-          </div>
+            <a method="post" class = "btn" type="submit" name="submit" >Submit</a>
+
         </form>
 
 
