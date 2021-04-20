@@ -314,10 +314,12 @@ function play(){
 function play1(){
 	playOnce=true;
 	setShape();
+	playOnce=false;
 }
 function play23(){
 	playMore=true;
 	setShape();
+	playMore=false;
 }
 
 
