@@ -81,8 +81,8 @@ table td, tr{
     border: 1px solid #a86d00;
     transition: color 150ms ease-in-out 150ms, border-color 300ms ease-out, box-shadow 300ms ease-in-out;
     height: 20px;
-    width: 75px;
-    padding: 25px 85px 30px;
+    width: 250px;
+    padding: 35px 85px 30px;
 }
 .btn:hover{
   color: #FF5F1F;
