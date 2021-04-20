@@ -66,7 +66,7 @@ function genGrid(){
 }
  
 //set patterns for start of game
-function setShape(){
+function setShape(x){
     var block= document.getElementById("block");
     var blinker= document.getElementById("blinker");
     var beacon = document.getElementById("beacon");
@@ -87,7 +87,8 @@ function setShape(){
         document.getElementById("25,25").style.backgroundColor = "#FF5F1F";
         map["26,25"] = 1;
         document.getElementById("26,25").style.backgroundColor = "#FF5F1F";
-        setTimeout(() => {  play() }, 300);
+        setTimeout(() => {  
+            play(x) }, 300);
  
         //run gamescript
     }else if(beacon.checked){
@@ -110,7 +111,7 @@ function setShape(){
         map["27,27"] = 1;
         document.getElementById("27,27").style.backgroundColor = "#FF5F1F";
        
-            play();
+            play(x);
         
     }else if(glider.checked){
         map["25,24"] = 1;
@@ -136,9 +137,9 @@ function setShape(){
         document.getElementById("26,27").style.backgroundColor = "black";
         map["26,26"] = 0;
         document.getElementById("26,26").style.backgroundColor = "black";
-        play();
+        play(x);
     }else{
-        play();
+        play(x);
     }
     
    
@@ -279,24 +280,45 @@ function getDeadCells(active_cells){
      4. Any dead cell with exactly three live neighbors becomes a live cell.
   
 **/
-function play(){
+function play(x){
     
-    var block= document.getElementById("block");
-    if(block.checked){return;}
+    
  
     //running the game rules within task
-    for(var i = 0; i<23; i++){ 
-        task(i);
+    if(x==1){
+        var block= document.getElementById("block");
+        if(block.checked){return;}
 
+        for(var i = 0; i<1; i++){ 
+            task(i);
+    
+        }
+    }else if(x==23){
+        var block= document.getElementById("block");
+        if(block.checked){return;}
+
+        for(var i = 0; i<23; i++){ 
+            task(i);
+    
+        }
+    }else{
+        var block= document.getElementById("block");
+        if(block.checked){return;}
+
+        for(var i = 0; i<99; i++){ 
+            task(i);
+    
+        }
     }
+    
 }
 function play1(){
 	playOnce=true;
-	setShape();
+	setShape(1);
 }
 function play23(){
 	playMore=true;
-	setShape();
+	setShape(23);
 }
 
 
@@ -338,7 +360,7 @@ function task(i) {
         setTimeout(() => {  updateGrid() }, 300);
         //update alive and dead
         console.log(alive, "alive after iteration");
-    }, 500*i);
+    }, 50*i);
 }
 
 
