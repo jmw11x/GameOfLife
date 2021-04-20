@@ -17,7 +17,7 @@
 				header("Location:registration.php");
 			}
 
-		header("Location:login.php");
+		header("Location:index.html");
 		}
 	}
 
@@ -41,6 +41,9 @@
 			<div class="wide">
 				<h1>Conway's Game of Life</h1>
 			</div>
+			<div class = "signout">
+                <a href="" >Credits</a>
+              </div>
 		</div>
 	</header>
 	<body>
@@ -51,7 +54,6 @@
 		
 
 			<form method="post" class="form1">
-			
 				<br>
 				<input placeholder="Username" class="un" type="text" id="uname" name="uname">
 				<br>
@@ -59,12 +61,10 @@
 				<br>
 				<input class="un" placeholder="Password" type="text" id="pass" name="pass">
 				<br><br>
-
-
-				<div class="btn">
-					<input  class = "submit" type="submit" name="submit" value="Submit">
-				</div>
-			</form>
+	  
+				  <a class = "btn" type="submit" name="submit" >Submit</a>
+	  
+			  </form>
 		</div>
 	</body>
 </html>
