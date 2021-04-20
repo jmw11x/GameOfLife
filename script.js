@@ -66,7 +66,7 @@ function genGrid(){
 }
  
 //set patterns for start of game
-function setShape(x){
+function setShape(){
     var block= document.getElementById("block");
     var blinker= document.getElementById("blinker");
     var beacon = document.getElementById("beacon");
@@ -87,8 +87,7 @@ function setShape(x){
         document.getElementById("25,25").style.backgroundColor = "#FF5F1F";
         map["26,25"] = 1;
         document.getElementById("26,25").style.backgroundColor = "#FF5F1F";
-        setTimeout(() => {  
-            play(x) }, 300);
+        setTimeout(() => {  play() }, 100);
  
         //run gamescript
     }else if(beacon.checked){
@@ -111,7 +110,7 @@ function setShape(x){
         map["27,27"] = 1;
         document.getElementById("27,27").style.backgroundColor = "#FF5F1F";
        
-            play(x);
+            play();
         
     }else if(glider.checked){
         map["25,24"] = 1;
@@ -137,9 +136,9 @@ function setShape(x){
         document.getElementById("26,27").style.backgroundColor = "black";
         map["26,26"] = 0;
         document.getElementById("26,26").style.backgroundColor = "black";
-        play(x);
+        play();
     }else{
-        play(x);
+        play();
     }
     
    
@@ -280,45 +279,24 @@ function getDeadCells(active_cells){
      4. Any dead cell with exactly three live neighbors becomes a live cell.
   
 **/
-function play(x){
+function play(){
     
-    
+    var block= document.getElementById("block");
+    if(block.checked){return;}
  
     //running the game rules within task
-    if(x==1){
-        var block= document.getElementById("block");
-        if(block.checked){return;}
+    for(var i = 0; i<22; i++){ 
+        task(i);
 
-        for(var i = 0; i<1; i++){ 
-            task(i);
-    
-        }
-    }else if(x==23){
-        var block= document.getElementById("block");
-        if(block.checked){return;}
-
-        for(var i = 0; i<23; i++){ 
-            task(i);
-    
-        }
-    }else{
-        var block= document.getElementById("block");
-        if(block.checked){return;}
-
-        for(var i = 0; i<99; i++){ 
-            task(i);
-    
-        }
     }
-    
 }
 function play1(){
 	playOnce=true;
-	setShape(1);
+	setShape();
 }
 function play23(){
 	playMore=true;
-	setShape(23);
+	setShape();
 }
 
 
@@ -357,7 +335,7 @@ function task(i) {
                 map[dead[j]]=1;
             }
         }
-        setTimeout(() => {  updateGrid() }, 300);
+        setTimeout(() => {  updateGrid() }, 100);
         //update alive and dead
         console.log(alive, "alive after iteration");
     }, 50*i);
