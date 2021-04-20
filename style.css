@@ -8,14 +8,15 @@ body {
   background: black;
   background: -webkit-linear-gradient(top right, black 0%, #181818 100%);
   background: linear-gradient(to bottom right, black 0%, #181818 100%);
-  font-family:sans-serif;
-  font-size:16px;
-  color: white;
+  font-family: "Lucida Console", Monaco, monospace;
+  font-size:25px;
+  color: #ed872d;
 }
 /* header */
 header {
   display: flex;
   padding: 30px 30px 0px 30px;
+
 }
 img {
   height: 130px;
@@ -23,8 +24,8 @@ img {
 }
 header .row {
   margin-top: 8px;
+  padding: 30px 30px 0px 30px;
   width: 95%;
-  padding: 15px 15px 0px 15px;
 }
 .col {
   flex: 1;
@@ -40,52 +41,79 @@ header .row {
 }
 h1 {
     font-family: "Lucida Console", Monaco, monospace;
-    color: #FF5F1F;
+    color: #E10600;
+    float: center;
+    
+
+}
+p {
+  color: #F2CD00;
+}
+table{
+  float: center;
 }
 table td, tr{
-    border: 1px solid #FF5F1F;
+    border: .5px;
     width: 10px;
     height: 10px;
+    outline: none;
+    border-color: #ed872d;
+    box-shadow: 0 0 10px #ed872d;
+
 }
+
 #grid {
     margin: 0 auto;
     padding-bottom: 10px;
 }
+
+
 .btn {
     margin: 0 auto;
     padding-bottom: 10px;  
-    padding: 15px 100px;
-    position:absolute;
-  top: 0;
-    color: #FF5F1F;
+    color: #a86d00;
     font-family: sans-serif;
     text-transform: uppercase;
     text-align: center;
     position: relative;
     text-decoration: none;
     display:inline-block;
-    border: 1px solid #FF5F1F;
+    border: 1px solid #a86d00;
+    transition: color 150ms ease-in-out 150ms, border-color 300ms ease-out, box-shadow 300ms ease-in-out;
+    height: 20px;
+    width: 75px;
+    padding: 25px 85px 30px;
 }
-.button {
+.btn:hover{
+  color: #FF5F1F;
+  border-color: lighten(white, 20%);
+  border: 1px solid;
+  box-shadow: 0 0 10px #FF5F1F;
+  /* #F2CD00 : yellow ; #fd3c06: red orange ; #E10600 : bright red*/
+}
+a, .button {
   padding: 15px 100px;
   margin:10px 4px;
-  color: #FF5F1F;
-  font-family: sans-serif;
+  color: #F2CD00;
+  font-family: "Lucida Console", Monaco, monospace;
   text-transform: uppercase;
   text-align: center;
-  position: relative;
-  text-decoration: none;
-  display:inline-block;
-  border: 1px solid #FF5F1F;
+  border: 1px solid #F2CD00;
   
 }
-.register {
-  max-width: 600px;
+.register, .buttondiv {
+  max-width: 1000px;
 	margin: 0 auto;
-	padding: 80px 0;
-	height: 400px;
+	padding: 50px 0;
 	text-align: center;
 }
+.adjust, .adjust1, .adjust2 {
+  
+  padding: 10px 10px;
+  float: center;
+  
+}
+
 form{
 	padding: 20px 0;
 	position: relative;
