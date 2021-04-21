@@ -8,13 +8,13 @@ Limited to a 50x50 grid, but all patterns work. You'd have to manually adjust si
 Authors
 Script.js :
   -Jacob Wilson -> play(), setShape(), getAlive(), loadAlive(), task(), getNeighbors(), revive(), getActivedCells(), getDeadCells(), updateGrid() <br>
-  -Prisilla Martinez -> generate grid function
-  -Lucky Phan -> Play 23 and Play1
-  -Trien Hong : generation counter
-style.css: Jacob Wilson
-index.html: Jacob Wilson
-login.php : Alaya Shack
-register.php: Alaya Shack
+  -Prisilla Martinez -> generate grid function <br>
+  -Lucky Phan -> Play 23 and Play1<br>
+  -Trien Hong : generation counter<br>
+style.css: Jacob Wilson <br>
+index.html: Jacob Wilson <br>
+login.php : Alaya Shack <br>
+register.php: Alaya Shack <br>
 
 ***The final stylings(seen in presentation before demo) had to be reverted to a previous release as they caused errors in the program. Refer to the branches for this stylesheet and ajustedments needed in script.js for a beterr ui. The login pages styling is also avialble in the patched branches.
     -> This was written by Prisilla MArtinez and Alaya Shack.
