@@ -26,6 +26,6 @@ Click on the radio button for a particular pattern and hit play
   ->this will simulate a game of 100 iterations 
   ->You can hit stop to pause the game and after it pauses you can click play to resume
   ->you can also activate areas of the board and hit play and the game of life will begin with these cells.
-
+ 
 
 note: The play 21 and play 1 buttons have errors and don't work; Use play button....
