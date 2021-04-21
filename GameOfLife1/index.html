@@ -1,20 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <title>Game of Life</title>
-        <link rel="stylesheet" type="text/css" href='style.css'>
-    </head>
-    <body onLoad = "javascript:loadCache()"> 
-        <script></script>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>GameOfLife</title>
+</head>
+    <body onLoad = "javascript:loadCache()">
+        <b><div id="timerButton">Generations: 0</div></b>
         <table id="grid"></table>
 
         block<input type="radio" name = "shape" value = "block" id = "block"/>
         blinker<input type="radio" name = "shape" value = "blinker" id = "blinker"/>
         beacon<input type="radio" name = "shape" value = "beacon" id = "beacon"/>
         <button onclick = "setShape()">Play</button>
-        <button onclick = "stop()">Stop</button>
-        <button onclick = "reset()">Reset</button>
+		<button onclick = "play1()">Play 1 Generation</button>
+		<button onclick = "play23()">Play 23 Generations</button>
+        <button onclick = "reset()">Stop</button>
+		<button onclick = "stop()">Reset</button>
+
 
 
         <br/>
@@ -23,6 +28,7 @@
         <script src = "script.js"></script>
         <script>
             function loadCache(){
+                document.getElementById("timerButton").innerHTML = "Generations: " + localStorage.generationcount;
                 var data = [];
                 if(localStorage["active"]!= undefined){data = localStorage["active"].split(",");}
                 if(data.length<1){return;}
@@ -31,15 +37,11 @@
                         var element = parseInt(data[i])+","+parseInt(data[i+1]);
                         console.log(element,"elemnt")
                         if(document.getElementById(element) != null){document.getElementById(element).style.backgroundColor = "blue";}
-                        
                     }
                 }
                 return;
-
-                
-              
             }
         </script>
-        
+
     </body>
 </html>
