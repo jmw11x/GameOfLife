@@ -7,7 +7,7 @@ Limited to a 50x50 grid, but all patterns work. You'd have to manually adjust si
 
 Authors
 Script.js :
-  -Jacob Wilson -> play(), setShape(), getAlive(), loadAlive(), task(), getNeighbors(), revive(), getActivedCells(), getDeadCells(), updateGrid()
+  -Jacob Wilson -> play(), setShape(), getAlive(), loadAlive(), task(), getNeighbors(), revive(), getActivedCells(), getDeadCells(), updateGrid()\n
   -Prisilla Martinez -> generate grid function
   -Lucky Phan -> Play 23 and Play1
   -Trien Hong : generation counter
